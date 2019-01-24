@@ -1,23 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { CheckrequestComponent } from './checkrequest/checkrequest.component';
-import { UserformComponent } from './userform/userform.component';
+import { AppWeatherComponent } from './app.weather';
+import { WeatherService } from './app.weather.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CheckrequestComponent,
-    UserformComponent
+    AppWeatherComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule
+    BrowserModule
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
