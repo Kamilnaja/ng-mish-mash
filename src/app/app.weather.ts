@@ -1,5 +1,5 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { WeatherEntry } from './model';
 import { WeatherService } from './app.weather.service';
 
 @Component({
@@ -8,10 +8,16 @@ import { WeatherService } from './app.weather.service';
 })
 
 export class AppWeatherComponent {
-    _data: WeatherEntry;
+    _data: any;
 
     constructor(private weatherService: WeatherService) {
-        this._data = weatherService.data;
+        this._data = this.weatherService.data
+            .subscribe(
+                resp => {
+                    const keys = resp.headers.keys();
+                    this._data = { ...resp.body };
+                }
+            );
     }
 
     get data() {
