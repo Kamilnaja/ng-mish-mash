@@ -1,20 +1,23 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppWeatherComponent } from './app.weather';
 import { WeatherService } from './app.weather.service';
-import { CtoF } from './Utils/CtoF.pipe';
-import { HttpClientModule } from '@angular/common/http';
+import { WeatherFormComponent } from './weather-form.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppWeatherComponent,
-    CtoF
+    WeatherFormComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]

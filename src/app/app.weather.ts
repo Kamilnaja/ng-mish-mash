@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { WeatherService } from './app.weather.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-weather',
@@ -14,7 +15,6 @@ export class AppWeatherComponent {
         this._data = this.weatherService.data
             .subscribe(
                 resp => {
-                    const keys = resp.headers.keys();
                     this._data = { ...resp.body };
                 }
             );
