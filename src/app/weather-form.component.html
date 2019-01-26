@@ -1,4 +1,5 @@
-<form>
+<form (ngSubmit)="handleSubmit()">
   <label for="city">City</label>
   <input type="text" [formControl]="city">
+  <input type="submit">
 </form>
