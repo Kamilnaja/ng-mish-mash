@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppWeatherComponent } from './app.weather';
-import { WeatherService } from './app.weather.service';
+import { WeatherService } from './services/app.weather.service';
 import { WeatherFormComponent } from './weather-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { UserInfoService } from './services/userInfo.service';
+import { UserDataService } from './services/UserData.service';
 import { UserSettings } from './models/UserSettings';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { UserSettings } from './models/UserSettings';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [WeatherService, UserInfoService, UserSettings],
+  providers: [WeatherService, UserDataService, UserSettings],
   bootstrap: [AppComponent]
 })
 

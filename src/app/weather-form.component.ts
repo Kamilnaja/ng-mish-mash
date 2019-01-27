@@ -1,23 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { UserInfoService } from './services/userInfo.service';
+import { UserSettings } from './models/UserSettings';
+import { UserDataService } from './services/UserData.service';
 
 @Component({
   selector: 'app-weather-form',
   templateUrl: './weather-form.component.html'
 })
 
-export class WeatherFormComponent implements OnInit {
+export class WeatherFormComponent {
 
-  city = new FormControl('');
+  city = new FormControl('Warsaw');
+  country = new FormControl('pl');
 
-  constructor(private service: UserInfoService) { }
+  _userSettings: UserSettings;
 
-  ngOnInit(): void {
-
+  constructor(private service: UserDataService) {
+    this._userSettings = new UserSettings();
   }
 
-  handleSubmit() {
-    this.service.changeData(this.city.value);
+  handleSubmit(): void {
+    const dto = {
+      city: this.city.value,
+      country: 'pl',
+      unitSystem: 'Metric'
+    };
+    this.service.changeData(dto);
   }
 }

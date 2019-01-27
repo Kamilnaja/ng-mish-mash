@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherService } from './app.weather.service';
-import { UserInfoService } from './services/userInfo.service';
+import { WeatherService } from './services/app.weather.service';
+import { UserDataService } from './services/UserData.service';
+import { UserSettings } from './models/UserSettings';
 
 @Component({
     selector: 'app-weather',
@@ -8,30 +9,30 @@ import { UserInfoService } from './services/userInfo.service';
 })
 
 export class AppWeatherComponent implements OnInit {
-    _data: any;
-    _userData = '';
+    _weatherApiResponse: any;
+    _userData: UserSettings;
 
     constructor(
         private weatherService: WeatherService,
-        private userInfoService: UserInfoService
+        private userConfigService: UserDataService
     ) {
-        this._data = this.weatherService.data
+        this._weatherApiResponse = this.weatherService.data
             .subscribe(
                 resp => {
-                    this._data = { ...resp.body };
+                    this._weatherApiResponse = { ...resp.body };
                 }
             );
+    }
+
+    ngOnInit(): void {
+        this.userConfigService.currentData.subscribe(data => this._userData = data);
     }
 
     get userData() {
         return this._userData;
     }
 
-    ngOnInit(): void {
-        this.userInfoService.currentData.subscribe(data => this._userData = data);
-    }
-
-    get data() {
-        return this._data;
+    get weatherDataResponse() {
+        return this._weatherApiResponse;
     }
 }
