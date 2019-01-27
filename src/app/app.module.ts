@@ -7,6 +7,7 @@ import { WeatherService } from './app.weather.service';
 import { WeatherFormComponent } from './weather-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UserInfoService } from './services/userInfo.service';
+import { UserSettings } from './models/UserSettings';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { UserInfoService } from './services/userInfo.service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [WeatherService, UserInfoService],
+  providers: [WeatherService, UserInfoService, UserSettings],
   bootstrap: [AppComponent]
 })
 

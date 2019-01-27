@@ -9,9 +9,12 @@ import { UserInfoService } from './services/userInfo.service';
 
 export class AppWeatherComponent implements OnInit {
     _data: any;
-    _userData: string;
+    _userData = '';
 
-    constructor(private weatherService: WeatherService, private userInfoService: UserInfoService) {
+    constructor(
+        private weatherService: WeatherService,
+        private userInfoService: UserInfoService
+    ) {
         this._data = this.weatherService.data
             .subscribe(
                 resp => {
