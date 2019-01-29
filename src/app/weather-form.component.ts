@@ -12,7 +12,6 @@ export class WeatherFormComponent {
 
   city = new FormControl('Warsaw');
   country = new FormControl('pl');
-
   _userSettings: UserSettings;
 
   constructor(private service: UserDataService) {
@@ -22,7 +21,7 @@ export class WeatherFormComponent {
   handleSubmit(): void {
     const dto = {
       city: this.city.value,
-      country: 'pl',
+      country: this.country.value,
       unitSystem: 'Metric'
     };
     this.service.changeData(dto);

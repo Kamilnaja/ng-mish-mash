@@ -17,8 +17,9 @@ export class WeatherService {
 
     get data(): Observable<HttpResponse<IWeatherEntry>> {
         const userChoose = `${this._userSettings.city},${this._userSettings.country}`;
+
         return this.http.get<IWeatherEntry>(
-            `${envProd.baseUrl}/data/2.5/weather?q=${userChoose}l&APPID=${envProd.apiKey}&units=${this._userSettings.unitSystem}`,
+            `${envProd.baseUrl}?q=${userChoose}l&APPID=${envProd.apiKey}&units=${this._userSettings.unitSystem}`,
             { observe: 'response' });
     }
 }
