@@ -8,6 +8,7 @@ import { environmentProd as envProd } from '../Utils/Environment.prod';
 })
 
 export class WeatherService {
+
     public listItems$: Observable<[]>;
     private _listItems: BehaviorSubject<any>;
     private dataStore: {
@@ -21,13 +22,12 @@ export class WeatherService {
     }
 
     public requestData(city?, country?, unitSystem?) {
-        const userChoose = `${city},${country}`;
-
-        this.http.get(
-            `${envProd.baseUrl}?q=${userChoose}l&APPID=${envProd.apiKey}&units=${unitSystem}`,
-        ).subscribe(items => {
-            this.dataStore.listItems = items;
-            this._listItems.next(items);
-        });
+        const url = `${envProd.baseUrl}?q=${city},${country}&APPID=${envProd.apiKey}&units=${unitSystem}`;
+        this.http
+            .get(url)
+            .subscribe(items => {
+                this.dataStore.listItems = items;
+                this._listItems.next(items);
+            });
     }
 }

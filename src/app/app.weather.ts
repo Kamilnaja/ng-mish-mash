@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { WeatherService } from './services/Weather.service';
 
 @Component({
@@ -7,14 +7,13 @@ import { WeatherService } from './services/Weather.service';
 })
 
 export class AppWeatherComponent implements OnInit {
+    @Input() city: string;
+    @Input() country: string;
 
     private _weatherApiResponse: any;
     private _listItems = [];
 
-    constructor(
-        private _weatherService: WeatherService) {
-        this._weatherApiResponse = this._weatherService.requestData('warszawa', 'pl', 'metric');
-    }
+    constructor(private _weatherService: WeatherService) { }
 
     ngOnInit(): void {
         this._weatherService.listItems$.subscribe(t => {
@@ -26,4 +25,7 @@ export class AppWeatherComponent implements OnInit {
     get weatherResponse() {
         return this._weatherApiResponse;
     }
+
+
+
 }
