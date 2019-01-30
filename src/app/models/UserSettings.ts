@@ -1,12 +1,18 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+    providedIn: 'root'
+})
+
 export class UserSettings {
     private _city: string;
     private _country: string;
     private _unitSystem: string;
 
-    constructor() {
-        this._city = 'Warsaw';
-        this._country = 'pl';
-        this._unitSystem = 'metrics';
+    constructor(city: string, country: string, unitSystem: string) {
+        this._city = city;
+        this._country = country;
+        this._unitSystem = unitSystem;
     }
 
     public get unitSystem(): string {

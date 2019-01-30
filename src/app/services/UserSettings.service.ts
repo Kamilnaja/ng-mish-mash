@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { WeatherService } from './Weather.service';
+import { UserSettings } from '../models/UserSettings';
 
 @Injectable()
 export class UserSettingsService {
@@ -11,6 +12,6 @@ export class UserSettingsService {
     }
 
     changeData(city, country, unitSystem) {
-        this.weatherService.requestData(city, country, unitSystem);
+        this.weatherService.requestData(new UserSettings(city, country, unitSystem));
     }
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environmentProd as envProd } from '../Utils/Environment.prod';
+import { UserSettings } from '../models/UserSettings';
 
 @Injectable({
     providedIn: 'root'
@@ -21,8 +22,8 @@ export class WeatherService {
         this.listItems$ = this._listItems.asObservable();
     }
 
-    public requestData(city?, country?, unitSystem?) {
-        const url = `${envProd.baseUrl}?q=${city},${country}&APPID=${envProd.apiKey}&units=${unitSystem}`;
+    public requestData(settings: UserSettings) {
+        const url = `${envProd.baseUrl}?q=${settings.city},${settings.country}&APPID=${envProd.apiKey}&units=${settings.unitSystem}`;
         this.http
             .get(url)
             .subscribe(items => {
