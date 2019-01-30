@@ -4,6 +4,7 @@ import { UserSettings } from '../models/UserSettings';
 
 @Injectable()
 export class UserDataService {
+    [x: string]: any;
 
     _userSettingsDto = new UserSettings();
 

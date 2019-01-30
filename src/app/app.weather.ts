@@ -16,11 +16,9 @@ export class AppWeatherComponent implements OnInit {
         private weatherService: WeatherService,
         private userConfigService: UserDataService
     ) {
-        this._weatherApiResponse = this.weatherService.data
+        this._weatherApiResponse = this.weatherService.requestData()
             .subscribe(
-                resp => {
-                    this._weatherApiResponse = { ...resp.body };
-                }
+                resp => { this._weatherApiResponse = { ...resp.body }; }
             );
     }
 
@@ -32,7 +30,7 @@ export class AppWeatherComponent implements OnInit {
         return this._userData;
     }
 
-    get weatherDataResponse() {
+    get weatherResponse() {
         return this._weatherApiResponse;
     }
 }
