@@ -1,7 +1,6 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IWeatherEntry } from '../models/model';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environmentProd as envProd } from '../Utils/Environment.prod';
 
 @Injectable({
@@ -9,14 +8,26 @@ import { environmentProd as envProd } from '../Utils/Environment.prod';
 })
 
 export class WeatherService {
+    public listItems$: Observable<[]>;
+    private _listItems: BehaviorSubject<any>;
+    private dataStore: {
+        listItems: any;
+    };
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+        this.dataStore = { listItems: [] };
+        this._listItems = new BehaviorSubject<[]>([]);
+        this.listItems$ = this._listItems.asObservable();
+    }
 
-    public requestData(city?, country?, unitSystem?): Observable<HttpResponse<IWeatherEntry>> {
+    public requestData(city?, country?, unitSystem?) {
         const userChoose = `${city},${country}`;
 
-        return this.http.get<IWeatherEntry>(
+        this.http.get(
             `${envProd.baseUrl}?q=${userChoose}l&APPID=${envProd.apiKey}&units=${unitSystem}`,
-            { observe: 'response' });
+        ).subscribe(items => {
+            this.dataStore.listItems = items;
+            this._listItems.next(items);
+        });
     }
 }

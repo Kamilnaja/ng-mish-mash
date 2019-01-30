@@ -11,10 +11,11 @@ export class WeatherFormComponent {
 
   city = new FormControl('Warsaw');
   country = new FormControl('pl');
+  unitSystem = 'metric';
 
   constructor(private _userDataService: UserSettingsService) { }
 
   handleSubmit(): void {
-    this._userDataService.changeData('lorem', 'ipsum', 'dolor'); // actualize view
+    this._userDataService.changeData(this.city.value, this.country.value, 'metric'); // actualize view
   }
 }
