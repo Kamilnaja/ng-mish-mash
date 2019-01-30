@@ -1,9 +1,25 @@
-<form (ngSubmit)="handleSubmit()">
-  <label for="city">City</label>
-  <input type="text" [formControl]="city">
-
-  <label for="country">Country</label>
-  <input type="text" [formControl]="country">
-  <input type="submit">
-</form>
-<app-weather [city]="city.value" [country]="country.value"></app-weather>
+<div class="container">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <h1 class="navbar-brand navbar-item">WeatherApp</h1>
+  </nav>
+  <form (ngSubmit)="handleSubmit()">
+    <div class="field">
+      <div class="control">
+        <label class="label" for="city">City</label>
+        <input class="input" type="text" [formControl]="city">
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <label class="label" for="country">Country</label>
+        <input class="input" type="text" [formControl]="country">
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <input class="button is-primary" type="submit">
+      </div>
+    </div>
+  </form>
+  <app-weather [city]="city.value" [country]="country.value"></app-weather>
+</div>

@@ -1,8 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { UserSettingsService } from './services/UserSettings.service';
 
 @Component({
+  styles: ['.container: {padding-top: 30px !important } '],
   selector: 'app-weather-form',
   templateUrl: './weather-form.component.html'
 })
