@@ -8,12 +8,14 @@ import { WeatherFormComponent } from './weather-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UserSettingsService } from './services/UserSettings.service';
 import { UserSettings } from './models/UserSettings';
+import { SearchesComponent } from './searches/searches.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppWeatherComponent,
-    WeatherFormComponent
+    WeatherFormComponent,
+    SearchesComponent
   ],
   imports: [
     BrowserModule,
