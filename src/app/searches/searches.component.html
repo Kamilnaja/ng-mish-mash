@@ -1,2 +1,12 @@
-{{_res}}
-<button (click)="addToTable()">Add to table</button>
+<ul *ngFor="let item of _res" class="tile is-ancesor">
+  <li class="tile notification is-child is-parent">
+    <div class="tile is-child box">
+      <p>
+        {{item.city}}
+      </p>
+      <p>
+        {{item.country | uppercase}}
+      </p>
+    </div>
+  </li>
+</ul>

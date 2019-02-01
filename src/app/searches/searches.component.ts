@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export class SearchesComponent implements OnInit {
 
-  private _res = Array<number>();
+  private _res = Array<Object>();
 
   constructor(private ss: SearchesService) { }
 

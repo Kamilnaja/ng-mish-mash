@@ -7,10 +7,10 @@ import { BehaviorSubject } from 'rxjs';
 
 export class SearchesService {
 
-  private _oldSearches: Array<number> = [1, 2, 3];
+  private _oldSearches: Array<object> = [];
   public result = new BehaviorSubject(this._oldSearches);
 
-  saveToLocal(item: number) {
+  saveToLocal(item: Object) {
     this.result.next([...this.result.value, item]);
   }
 }
