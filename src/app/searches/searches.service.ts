@@ -15,7 +15,7 @@ export class SearchesService {
     this.prepareBehaviourSubject();
   }
 
-  saveToLocalStorage(item: UserSettings) {
+  saveToLocalStorage(newUserSettings: UserSettings) {
     let itemsToSave;
 
     if (this.storageService.getItem(environmentProd.localStorageKey) == null) {
@@ -30,9 +30,9 @@ export class SearchesService {
     }
 
     // check duplicates
-    this.checkDuplicates(item, itemsToSave);
+    this.checkDuplicates(newUserSettings, itemsToSave);
 
-    itemsToSave.unshift(item);
+    itemsToSave.unshift(newUserSettings);
 
     this.storageService.save(environmentProd.localStorageKey, itemsToSave);
     this.result.next(this.storageService.getParsedItem(environmentProd.localStorageKey));
