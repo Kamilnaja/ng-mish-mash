@@ -9,6 +9,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UserSettingsService } from './services/UserSettings.service';
 import { UserSettings } from './models/UserSettings';
 import { SearchesComponent } from './searches/searches.component';
+import { SearchesService } from './searches/searches.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,12 @@ import { SearchesComponent } from './searches/searches.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [WeatherService, UserSettingsService, UserSettings],
+  providers: [
+    WeatherService,
+    UserSettingsService,
+    UserSettings,
+    SearchesService
+  ],
   bootstrap: [AppComponent]
 })
 

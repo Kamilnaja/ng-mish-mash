@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WeatherService } from './services/Weather.service';
 import { UserSettings } from './models/UserSettings';
+import { SearchesService } from './searches/searches.service';
 
 @Component({
     selector: 'app-weather',

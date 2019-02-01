@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environmentProd as envProd } from '../Utils/Environment.prod';
 import { UserSettings } from '../models/UserSettings';
+import { SearchesService } from '../searches/searches.service';
 
 @Injectable({
     providedIn: 'root'
@@ -16,7 +17,7 @@ export class WeatherService {
         listItems: any;
     };
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private searchesService: SearchesService) {
         this.dataStore = { listItems: [] };
         this._listItems = new BehaviorSubject<[]>([]);
         this.listItems$ = this._listItems.asObservable();
@@ -30,5 +31,8 @@ export class WeatherService {
                 this.dataStore.listItems = items;
                 this._listItems.next(items);
             });
+        setTimeout(() => {
+            this.searchesService.saveToLocal(100);
+        });
     }
 }
