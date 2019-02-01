@@ -20,4 +20,8 @@ export class SearchesComponent implements OnInit {
   addToTable() {
     this.searchesService.saveToLocal(1);
   }
+
+  handleClear() {
+    this.searchesService.clearSearches();
+  }
 }

@@ -8,16 +8,17 @@ import { BehaviorSubject } from 'rxjs';
 export class SearchesService {
   private _oldSearches: Array<object> = [];
   public result;
-  constructor() {
 
+  constructor() {
+    this.prepareBehaviourSubject();
+  }
+
+  private prepareBehaviourSubject() {
     if (localStorage.getItem('test') == null) {
       this.result = new BehaviorSubject([]);
     } else {
-      this.result = new BehaviorSubject(localStorage.getItem('test'));
+      this.result = new BehaviorSubject(JSON.parse(localStorage.getItem('test')));
     }
-
-    console.log(localStorage.getItem('test'));
-    console.log(this.result.value);
   }
 
   saveToLocal(item: Object) {
@@ -29,10 +30,14 @@ export class SearchesService {
       items = JSON.parse(localStorage.getItem('test'));
     }
 
-    items.push(item);
+    items.unshift(item);
     localStorage.setItem('test', JSON.stringify(items));
-    console.log(localStorage.getItem('test'));
     this.result.next(JSON.parse(localStorage.getItem('test')));
-
   }
+
+  clearSearches(): any {
+    localStorage.removeItem('test');
+    this.result.next([]);
+  }
+
 }
