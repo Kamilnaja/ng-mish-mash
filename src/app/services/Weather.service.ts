@@ -32,7 +32,7 @@ export class WeatherService {
                 this._listItems.next(items);
             });
         setTimeout(() => {
-            this.searchesService.saveToLocal(settings);
+            this.searchesService.saveToLocalStorage(settings);
         });
     }
 }

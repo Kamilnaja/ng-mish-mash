@@ -17,10 +17,6 @@ export class SearchesComponent implements OnInit {
     this.searchesService.result.subscribe(t => this._res = t);
   }
 
-  addToTable() {
-    this.searchesService.saveToLocal(1);
-  }
-
   handleClear() {
     this.searchesService.clearSearches();
   }

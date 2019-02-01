@@ -2,12 +2,18 @@
 <ul *ngFor="let item of _res" class="tile is-ancesor">
   <li class="tile notification is-child is-parent">
     <div class="tile is-child box">
-      <p>
-        {{item.city}}
-      </p>
-      <p>
-        {{item.country | uppercase}}
-      </p>
+      <div class="columns">
+        <p class="column">
+          {{item.city}}
+          {{item.country | uppercase}}
+        </p>
+        <p class="delete column"></p>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="button">Rerun</div>
+        </div>
+      </div>
     </div>
   </li>
 </ul>
