@@ -10,6 +10,7 @@ import { UserSettingsService } from './services/UserSettings.service';
 import { UserSettings } from './models/UserSettings';
 import { SearchesComponent } from './searches/searches.component';
 import { SearchesService } from './searches/searches.service';
+import { LocalStorageService } from './services/LocalStorageService';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SearchesService } from './searches/searches.service';
     WeatherService,
     UserSettingsService,
     UserSettings,
-    SearchesService
+    SearchesService,
+    LocalStorageService
   ],
   bootstrap: [AppComponent]
 })

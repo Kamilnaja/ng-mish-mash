@@ -1,59 +1,65 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { UserSettings } from '../models/UserSettings';
+import { LocalStorageService } from '../services/LocalStorageService';
+import { environmentProd } from '../Utils/Environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class SearchesService {
-  private _oldSearches: Array<object> = [];
   public result;
 
-  constructor() {
+  constructor(private storageService: LocalStorageService) {
     this.prepareBehaviourSubject();
   }
 
-  private prepareBehaviourSubject() {
-    if (localStorage.getItem('test') == null) {
-      this.result = new BehaviorSubject([]);
-    } else {
-      this.result = new BehaviorSubject(JSON.parse(localStorage.getItem('test')));
-    }
-  }
-
   saveToLocalStorage(item: UserSettings) {
+    let itemsToSave;
 
-    let items;
-    if (localStorage.getItem('test') == null) {
-      items = [];
+    if (this.storageService.getItem(environmentProd.localStorageKey) == null) {
+      itemsToSave = [];
     } else {
-      items = JSON.parse(localStorage.getItem('test'));
+      itemsToSave = this.storageService.getParsedItem(environmentProd.localStorageKey);
     }
 
     // restrict last 10 searches, remove last item and add on the begining
-
     if (this.result.value.length >= 10) {
-      items.pop();
+      itemsToSave.pop();
     }
 
     // check duplicates
-    let foundIndex;
+    this.checkDuplicates(item, itemsToSave);
 
-    if (localStorage.getItem('test') !== null) {
-      foundIndex = JSON.parse(localStorage.getItem('test'))
+    itemsToSave.unshift(item);
+
+    this.storageService.save(environmentProd.localStorageKey, itemsToSave);
+    this.result.next(this.storageService.getParsedItem(environmentProd.localStorageKey));
+  }
+
+  private checkDuplicates(item: UserSettings, items: any) {
+    let foundIndex;
+    if (this.storageService.getItem(environmentProd.localStorageKey) !== null) {
+      foundIndex = this.storageService.getParsedItem(environmentProd.localStorageKey)
         .findIndex(this.checkIfItemExists(item));
     }
-
     if (foundIndex !== -1 && foundIndex !== undefined) {
-      console.log(`found duplicate on position ${foundIndex}. Attempt to remove this garbage!`);
-      items.splice(foundIndex, 1);
+      this.removeDuplicate(foundIndex, items);
     }
+  }
 
-    items.unshift(item);
+  private removeDuplicate(foundIndex: any, items: any) {
+    console.log(`found duplicate on position ${foundIndex}. Attempt to remove this garbage!`);
+    items.splice(foundIndex, 1);
+  }
 
-    localStorage.setItem('test', JSON.stringify(items));
-    this.result.next(JSON.parse(localStorage.getItem('test')));
+  private prepareBehaviourSubject() {
+    if (this.storageService.getItem(environmentProd.localStorageKey) == null) {
+      this.result = new BehaviorSubject([]);
+    } else {
+      this.result = new BehaviorSubject(this.storageService.getParsedItem(environmentProd.localStorageKey));
+    }
   }
 
   private checkIfItemExists(item: UserSettings): any {
@@ -61,7 +67,7 @@ export class SearchesService {
   }
 
   clearSearches(): any {
-    localStorage.removeItem('test');
+    this.storageService.clear(environmentProd.localStorageKey);
     this.result.next([]);
   }
 }

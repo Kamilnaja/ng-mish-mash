@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UserSettings } from './models/UserSettings';
 import { WeatherService } from './services/Weather.service';
 
 @Component({
@@ -20,7 +19,6 @@ export class AppWeatherComponent implements OnInit {
         this._weatherService.listItems$.subscribe(t => {
             this._listItems = t;
         });
-        this._weatherService.requestData(new UserSettings(this.city, this.country, 'metric'));
     }
 
     get weatherResponse() {
