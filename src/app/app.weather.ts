@@ -21,7 +21,7 @@ export class AppWeatherComponent implements OnInit {
         this._weatherService.listItems$.subscribe(t => {
             this._listItems = t;
         });
-        this._weatherService.requestData(new UserSettings(this.city, 'polska', 'metric'));
+        this._weatherService.requestData(new UserSettings(this.city, 'pl', 'metric'));
     }
 
     get weatherResponse() {

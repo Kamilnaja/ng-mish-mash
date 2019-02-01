@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchesService } from './searches.service';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-searches',
@@ -12,13 +11,13 @@ export class SearchesComponent implements OnInit {
 
   private _res = Array<Object>();
 
-  constructor(private ss: SearchesService) { }
+  constructor(private searchesService: SearchesService) { }
 
   ngOnInit(): void {
-    this.ss.result.subscribe(t => this._res = t);
+    this.searchesService.result.subscribe(t => this._res = t);
   }
 
   addToTable() {
-    this.ss.saveToLocal(1);
+    this.searchesService.saveToLocal(1);
   }
 }
