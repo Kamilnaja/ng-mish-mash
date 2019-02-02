@@ -1,0 +1,17 @@
+<li class="tile notification is-child is-parent">
+
+  <div class="tile is-child box">
+    <div class="columns">
+      <p class="column">
+        {{city}}
+        {{country | uppercase}}
+      </p>
+      <p class="delete column"></p>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="button" (click)="handleSubmit()">Rerun</div>
+      </div>
+    </div>
+  </div>
+</li>

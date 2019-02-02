@@ -15,10 +15,10 @@ export class WeatherFormComponent {
   country = new FormControl('pl');
   unitSystem = 'metric';
 
-  constructor(private _userDataService: UserSettingsService) { }
+  constructor(private userSettingsService: UserSettingsService) { }
 
   handleSubmit(): void {
     const userSettings = new UserSettings(this.city.value, this.country.value, this.unitSystem);
-    this._userDataService.changeData(userSettings); // actualize view
+    this.userSettingsService.changeData(userSettings); // actualize view
   }
 }

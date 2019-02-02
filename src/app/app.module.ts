@@ -11,13 +11,15 @@ import { UserSettings } from './models/UserSettings';
 import { SearchesComponent } from './searches/searches.component';
 import { SearchesService } from './searches/searches.service';
 import { LocalStorageService } from './services/LocalStorageService';
+import { SingleSearchComponent } from './single-search/single-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppWeatherComponent,
     WeatherFormComponent,
-    SearchesComponent
+    SearchesComponent,
+    SingleSearchComponent
   ],
   imports: [
     BrowserModule,

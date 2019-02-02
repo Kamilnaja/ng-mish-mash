@@ -8,7 +8,7 @@ export class UserSettingsService {
     constructor(public weatherService: WeatherService) { }
 
     loadAll() {
-        this.changeData(new UserSettings('warszawa', 'pl', 'metric'));
+        this.changeData(new UserSettings('warsaw', 'pl', 'metric'));
     }
 
     changeData(userSettings) {
