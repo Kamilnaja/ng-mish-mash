@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { UserSettings } from '../models/UserSettings';
 import { UserSettingsService } from '../services/UserSettings.service';
+import { UnitSystem } from '../unit-system.enum';
 
 @Component({
   selector: 'app-weather-form',
@@ -12,7 +13,7 @@ export class WeatherFormComponent {
   showResults = false;
   city = new FormControl('Warsaw');
   country = new FormControl('pl');
-  unitSystem = 'metric';
+  unitSystem = UnitSystem.metric;
 
   constructor(private userSettingsService: UserSettingsService) {
   }

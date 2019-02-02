@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserSettings } from '../models/UserSettings';
 import { WeatherService } from '../userChooseInfo/UserChoseInfo.service';
+import { UnitSystem } from '../unit-system.enum';
 
 @Injectable()
 export class UserSettingsService {
@@ -8,7 +9,7 @@ export class UserSettingsService {
     constructor(public weatherService: WeatherService) { }
 
     loadAll() {
-        this.changeData(new UserSettings('warsaw', 'pl', 'metric'));
+        this.changeData(new UserSettings('warsaw', 'pl', UnitSystem.metric));
     }
 
     changeData(userSettings) {
