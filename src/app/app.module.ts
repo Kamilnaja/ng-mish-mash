@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { UserChooseInfoComponent } from './userChooseInfo/UserChooseInfo.component';
 import { WeatherService } from './userChooseInfo/UserChoseInfo.service';
-import { WeatherFormComponent } from './weather-form.component';
+import { WeatherFormComponent } from './weatherForm/weather-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UserSettingsService } from './services/UserSettings.service';
 import { UserSettings } from './models/UserSettings';

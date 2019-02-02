@@ -1,7 +1,9 @@
 <form (ngSubmit)="handleSubmit()">
   <div class="field">
     <div class="control">
-      <label class="label" for="city">City</label>
+      <label class="label" for="city">
+        City
+      </label>
       <input class="input" type="text" [formControl]="city">
     </div>
   </div>
@@ -17,4 +19,4 @@
     </div>
   </div>
 </form>
-<app-user-choose-info></app-user-choose-info>
+<app-user-choose-info [showResults]="showResults"></app-user-choose-info>

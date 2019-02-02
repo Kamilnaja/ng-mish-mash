@@ -7,8 +7,8 @@ import { WeatherService } from './UserChoseInfo.service';
 })
 
 export class UserChooseInfoComponent implements OnInit {
-    @Input() city: string;
-    @Input() country: string;
+
+    @Input() showResults: boolean;
 
     private _weatherApiResponse: any;
     private _listItems = [];

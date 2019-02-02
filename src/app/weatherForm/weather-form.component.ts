@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { UserSettings } from './models/UserSettings';
-import { UserSettingsService } from './services/UserSettings.service';
+import { UserSettings } from '../models/UserSettings';
+import { UserSettingsService } from '../services/UserSettings.service';
 
 @Component({
   selector: 'app-weather-form',
@@ -9,7 +9,7 @@ import { UserSettingsService } from './services/UserSettings.service';
 })
 
 export class WeatherFormComponent {
-
+  showResults = false;
   city = new FormControl('Warsaw');
   country = new FormControl('pl');
   unitSystem = 'metric';
@@ -18,6 +18,7 @@ export class WeatherFormComponent {
   }
 
   handleSubmit(): void {
+    this.showResults = true;
     this.userSettingsService.changeData(
       new UserSettings(this.city.value, this.country.value, this.unitSystem)); // actualize view
   }
