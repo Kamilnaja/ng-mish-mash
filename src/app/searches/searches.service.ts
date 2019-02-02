@@ -40,6 +40,7 @@ export class SearchesService {
 
   private checkDuplicates(item: UserSettings, items: any) {
     let foundIndex;
+
     if (this.storageService.getItem(environmentProd.localStorageKey) !== null) {
       foundIndex = this.storageService.getParsedItem(environmentProd.localStorageKey)
         .findIndex(this.checkIfItemExists(item));

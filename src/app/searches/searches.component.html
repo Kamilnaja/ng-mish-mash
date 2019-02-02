@@ -1,6 +1,6 @@
 <button class="button is-fullwidth" (click)="handleClear()" [attr.disabled]="lastSearches.length > 0 ? null : 'disabled'">
   clear
 </button>
-<ul *ngFor="let item of lastSearches" class="tile is-ancesor">
-  <app-single-search [city]="item.city" [country]="item.country" [metricSystem]="item.metricSystem"></app-single-search>
+<ul *ngFor="let item of lastSearches">
+  <app-single-search [city]="item.city" [country]="item.country" [unitSystem]="item.unitSystem" class="tile is-ancesor"></app-single-search>
 </ul>

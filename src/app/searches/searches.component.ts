@@ -12,7 +12,9 @@ export class SearchesComponent implements OnInit {
 
   private lastSearches = Array<Object>();
 
-  constructor(private searchesService: SearchesService, public _userDataService: UserSettingsService) { }
+  constructor(
+    private searchesService: SearchesService,
+    public _userDataService: UserSettingsService) { }
 
   ngOnInit(): void {
     this.searchesService.result.subscribe(t => this.lastSearches = t);
