@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { WeatherService } from '../userChooseInfo/UserChoseInfo.service';
 import { UserSettings } from '../models/UserSettings';
+import { WeatherService } from '../userChooseInfo/UserChoseInfo.service';
 
 @Injectable()
 export class UserSettingsService {

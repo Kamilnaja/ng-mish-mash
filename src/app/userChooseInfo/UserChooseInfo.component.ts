@@ -6,7 +6,7 @@ import { WeatherService } from './UserChoseInfo.service';
     templateUrl: './UserChooseInfo.html'
 })
 
-export class AppWeatherComponent implements OnInit {
+export class UserChooseInfoComponent implements OnInit {
     @Input() city: string;
     @Input() country: string;
 

@@ -7,6 +7,7 @@ import { UserSettingsService } from '../services/UserSettings.service';
   templateUrl: './single-search.component.html'
 })
 export class SingleSearchComponent {
+
   @Input() city: string;
   @Input() country: string;
   @Input() metricSystem: string;

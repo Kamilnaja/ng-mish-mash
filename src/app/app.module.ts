@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { AppWeatherComponent } from './userChooseInfo/UserChooseInfo.component';
+import { UserChooseInfoComponent } from './userChooseInfo/UserChooseInfo.component';
 import { WeatherService } from './userChooseInfo/UserChoseInfo.service';
 import { WeatherFormComponent } from './weather-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -16,7 +16,7 @@ import { SingleSearchComponent } from './single-search/single-search.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AppWeatherComponent,
+    UserChooseInfoComponent,
     WeatherFormComponent,
     SearchesComponent,
     SingleSearchComponent

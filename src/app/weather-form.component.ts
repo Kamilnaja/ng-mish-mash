@@ -14,7 +14,8 @@ export class WeatherFormComponent {
   country = new FormControl('pl');
   unitSystem = 'metric';
 
-  constructor(private userSettingsService: UserSettingsService) { }
+  constructor(private userSettingsService: UserSettingsService) {
+  }
 
   handleSubmit(): void {
     this.userSettingsService.changeData(
