@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { WeatherService } from './Weather.service';
+import { WeatherService } from '../userChooseInfo/UserChoseInfo.service';
 import { UserSettings } from '../models/UserSettings';
 
 @Injectable()

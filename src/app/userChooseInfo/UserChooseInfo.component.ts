@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { WeatherService } from './services/Weather.service';
+import { WeatherService } from './UserChoseInfo.service';
 
 @Component({
-    selector: 'app-weather',
-    templateUrl: './app.weather.html'
+    selector: 'app-user-choose-info',
+    templateUrl: './UserChooseInfo.html'
 })
 
 export class AppWeatherComponent implements OnInit {
