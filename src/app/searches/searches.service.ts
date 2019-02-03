@@ -4,7 +4,6 @@ import { StoredUserSettings } from '../models/StoredUserSettings';
 import { UserSettings } from '../models/UserSettings';
 import { LocalStorageService } from '../services/LocalStorageService';
 import { environmentProd } from '../Utils/Environment.prod';
-import { UnitSystem } from '../unit-system.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +13,10 @@ export class SearchesService {
   public result;
 
   constructor(private storageService: LocalStorageService) {
-    this.prepareBehaviourSubject();
+    this._prepareBehaviourSubject();
   }
 
-  saveToLocalStorage(newUserSettings: StoredUserSettings) {
+  saveNewSearch(newUserSettings: StoredUserSettings) {
     let itemsToSave;
 
     if (this.storageService.getItem(environmentProd.localStorageKey) == null) {
@@ -32,15 +31,33 @@ export class SearchesService {
     }
 
     // check duplicates
-    this.checkDuplicates(newUserSettings, itemsToSave);
+    this._checkDuplicates(newUserSettings, itemsToSave);
     // convert to StoredUserSettings with uuid
     itemsToSave.unshift(new StoredUserSettings(newUserSettings));
 
+    this._finalizeSave(itemsToSave);
+  }
+
+  clearSearches(): void {
+    this.storageService.clear(environmentProd.localStorageKey);
+    this.result.next([]);
+  }
+
+  removeSearch(uuid: number): void {
+    const itemsToSave = this.storageService.getParsedItem(environmentProd.localStorageKey);
+    //  find wanted item
+    const foundIndex = itemsToSave.findIndex(item => item.uuid = uuid);
+    itemsToSave.splice(foundIndex, 1);
+
+    this._finalizeSave(itemsToSave);
+  }
+
+  private _finalizeSave(itemsToSave: any) {
     this.storageService.save(environmentProd.localStorageKey, itemsToSave);
     this.result.next(this.storageService.getParsedItem(environmentProd.localStorageKey));
   }
 
-  private checkDuplicates(item: StoredUserSettings, items: any) {
+  private _checkDuplicates(item: StoredUserSettings, items: any) {
     let foundIndex;
 
     if (this.storageService.getItem(environmentProd.localStorageKey) !== null) {
@@ -48,16 +65,16 @@ export class SearchesService {
         .findIndex(this.checkIfItemExists(item));
     }
     if (foundIndex !== -1 && foundIndex !== undefined) {
-      this.removeDuplicate(foundIndex, items);
+      this._removeDuplicate(foundIndex, items);
     }
   }
 
-  private removeDuplicate(foundIndex: any, items: any) {
+  private _removeDuplicate(foundIndex: any, items: any) {
     console.log(`found duplicate on position ${foundIndex}. Attempt to remove this garbage!`);
     items.splice(foundIndex, 1);
   }
 
-  private prepareBehaviourSubject() {
+  private _prepareBehaviourSubject() {
     if (this.storageService.getItem(environmentProd.localStorageKey) == null) {
       this.result = new BehaviorSubject([]);
     } else {
@@ -65,12 +82,8 @@ export class SearchesService {
     }
   }
 
-  private checkIfItemExists(item: UserSettings): any {
+  private checkIfItemExists(item: UserSettings) {
     return (x: { city: string; country: string; }) => x.city === item.city && x.country === item.country;
   }
 
-  clearSearches(): any {
-    this.storageService.clear(environmentProd.localStorageKey);
-    this.result.next([]);
-  }
 }

@@ -42,7 +42,7 @@ export class WeatherService {
                 }
             );
         setTimeout(() => {
-            this.searchesService.saveToLocalStorage(settings);
+            this.searchesService.saveNewSearch(settings);
         });
     }
 }

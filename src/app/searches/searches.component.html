@@ -2,5 +2,6 @@
   clear
 </button>
 <ul *ngFor="let item of lastSearches">
-  <app-single-search [city]="item.city" [country]="item.country" [unitSystem]="item.unitSystem" class="tile is-ancesor"></app-single-search>
+  <app-single-search [city]="item.city" [country]="item.country" [unitSystem]="item.unitSystem" [uuid]="item.uuid"
+    class="tile is-ancesor"></app-single-search>
 </ul>

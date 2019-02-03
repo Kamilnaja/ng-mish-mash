@@ -21,4 +21,5 @@ export class LocalStorageService {
     clear(item: string) {
         localStorage.removeItem(item);
     }
+
 }

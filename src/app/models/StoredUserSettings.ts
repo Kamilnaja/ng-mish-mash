@@ -6,7 +6,7 @@ import { UserSettings } from './UserSettings';
 })
 
 export class StoredUserSettings extends UserSettings {
-    public uuid;
+    public uuid: number;
 
     constructor(userSettings: UserSettings) {
         super(userSettings.city, userSettings.country, userSettings.unitSystem);

@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { UserSettings } from '../../models/UserSettings';
 import { UserSettingsService } from '../../services/UserSettings.service';
 import { UnitSystem } from '../../unit-system.enum';
+import { SearchesService } from '../searches.service';
 
 @Component({
   selector: 'app-single-search',
@@ -13,8 +14,9 @@ export class SingleSearchComponent {
   @Input() city: string;
   @Input() country: string;
   @Input() unitSystem: UnitSystem;
+  @Input() uuid: any;
 
-  constructor(private userSettingsService: UserSettingsService) { }
+  constructor(private userSettingsService: UserSettingsService, private searchesService: SearchesService) { }
 
   handleSubmit() {
     this.userSettingsService.changeData(
@@ -22,6 +24,6 @@ export class SingleSearchComponent {
   }
 
   handleDelete() {
-    console.log('deleting');
+    this.searchesService.removeSearch(this.uuid);
   }
 }
