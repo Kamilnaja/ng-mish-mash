@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-result-ok',
-    templateUrl: './resultOk.html'
+    templateUrl: './resultOk.html',
+    styleUrls: ['./../../result.css']
 })
 
 export class ResultOkComponent {

@@ -1,9 +1,5 @@
-<div *ngIf="showResults === true">
+<app-city-not-found [result]="result"></app-city-not-found>
 
-    <app-city-not-found [result]="result"></app-city-not-found>
+<app-connection-error [result]="result"></app-connection-error>
 
-    <app-connection-error [result]="result"></app-connection-error>
-
-    <app-result-ok [result]="result"></app-result-ok>
-
-</div>
+<app-result-ok [result]="result"></app-result-ok>

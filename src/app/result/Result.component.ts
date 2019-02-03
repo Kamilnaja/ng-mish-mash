@@ -1,12 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { WeatherService } from './WeatherService';
 
 @Component({
     selector: 'app-result',
-    templateUrl: './result.html',
-    styles: [`.message {
-        margin-top: 15px;
-    }`]
+    templateUrl: './result.html'
 })
 
 export class ResultComponent implements OnInit {
