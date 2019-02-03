@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { StoredUserSettings } from '../models/StoredUserSettings';
 import { UserSettings } from '../models/UserSettings';
 import { LocalStorageService } from '../services/LocalStorageService';
 import { environmentProd } from '../Utils/Environment.prod';
+import { UnitSystem } from '../unit-system.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,7 @@ export class SearchesService {
     this.prepareBehaviourSubject();
   }
 
-  saveToLocalStorage(newUserSettings: UserSettings) {
+  saveToLocalStorage(newUserSettings: StoredUserSettings) {
     let itemsToSave;
 
     if (this.storageService.getItem(environmentProd.localStorageKey) == null) {
@@ -31,14 +33,14 @@ export class SearchesService {
 
     // check duplicates
     this.checkDuplicates(newUserSettings, itemsToSave);
-
-    itemsToSave.unshift(newUserSettings);
+    // convert to StoredUserSettings with uuid
+    itemsToSave.unshift(new StoredUserSettings(newUserSettings));
 
     this.storageService.save(environmentProd.localStorageKey, itemsToSave);
     this.result.next(this.storageService.getParsedItem(environmentProd.localStorageKey));
   }
 
-  private checkDuplicates(item: UserSettings, items: any) {
+  private checkDuplicates(item: StoredUserSettings, items: any) {
     let foundIndex;
 
     if (this.storageService.getItem(environmentProd.localStorageKey) !== null) {

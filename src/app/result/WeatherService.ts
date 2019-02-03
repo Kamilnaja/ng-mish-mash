@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { UserSettings } from '../models/UserSettings';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { StoredUserSettings } from '../models/StoredUserSettings';
 import { SearchesService } from '../searches/searches.service';
 import { environmentProd as envProd } from '../Utils/Environment.prod';
-import { catchError } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -24,7 +23,7 @@ export class WeatherService {
         this.listItems$ = this._listItems.asObservable();
     }
 
-    public requestData(settings: UserSettings) {
+    public requestData(settings: StoredUserSettings) {
         const url = `${envProd.baseUrl}?q=${settings.city},${settings.country}&APPID=${envProd.apiKey}&units=${settings.unitSystem}`;
         this.http
             .get(url)
@@ -45,17 +44,5 @@ export class WeatherService {
         setTimeout(() => {
             this.searchesService.saveToLocalStorage(settings);
         });
-    }
-
-    private _handleError<T>(operation = 'operation', result?: T) {
-        return (error: any): Observable<T> => {
-            console.error(error);
-            this.log(`${operation} failed: ${error.message}`);
-            return of(result as T);
-        };
-    }
-
-    private log(message: string) {
-        console.log('message');
     }
 }
