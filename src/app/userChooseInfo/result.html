@@ -8,6 +8,8 @@
             <li>Pressure: {{result?.main?.pressure}}</li>
             <li>Humidity: {{result?.main?.humidity}}</li>
             <li>Temp min: {{result?.main?.temp_min}}</li>
+            <li>Temp max: {{result?.main.temp_max}}</li>
+            <li>Temp average: {{(result?.main.temp_max + result?.main.temp_min) / 2}}</li>
         </ul>
     </div>
 </div>

@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { WeatherService } from './UserChoseInfo.service';
+import { WeatherService } from './WeatherService';
 
 @Component({
-    selector: 'app-user-choose-info',
-    templateUrl: './UserChooseInfo.html',
+    selector: 'app-result',
+    templateUrl: './result.html',
     styles: [`.message {
         margin-top: 15px;
     }`]
 })
 
-export class UserChooseInfoComponent implements OnInit {
+export class ResultComponent implements OnInit {
 
     @Input() showResults: boolean;
 
