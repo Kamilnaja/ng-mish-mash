@@ -1,0 +1,6 @@
+<div class="message is-danger" *ngIf="result?.error?.message === 'city not found'">
+    <div class="message-body">
+        <h2><b>{{result.error.message}}</b></h2>
+        <p>Please check, if your city name spelling is ok</p>
+    </div>
+</div>

@@ -52,7 +52,7 @@ export class WeatherService {
             console.error(error);
             this.log(`${operation} failed: ${error.message}`);
             return of(result as T);
-        }
+        };
     }
 
     private log(message: string) {

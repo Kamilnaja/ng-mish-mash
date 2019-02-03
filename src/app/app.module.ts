@@ -12,6 +12,9 @@ import { SearchesComponent } from './searches/searches.component';
 import { SearchesService } from './searches/searches.service';
 import { LocalStorageService } from './services/LocalStorageService';
 import { SingleSearchComponent } from './single-search/single-search.component';
+import { CityNotFoundComponent } from './result/partials/cityNotFound/CityNotFound.component';
+import { ConnectionErrorComponent } from './result/partials/connectionError/ConnectionError.component';
+import { ResultOkComponent } from './result/partials/resultok/ResultOk.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { SingleSearchComponent } from './single-search/single-search.component';
     ResultComponent,
     WeatherFormComponent,
     SearchesComponent,
-    SingleSearchComponent
+    SingleSearchComponent,
+    CityNotFoundComponent,
+    ConnectionErrorComponent,
+    ResultOkComponent
   ],
   imports: [
     BrowserModule,
