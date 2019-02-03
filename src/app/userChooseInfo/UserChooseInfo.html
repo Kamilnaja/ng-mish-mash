@@ -1,8 +1,13 @@
-<h2>Here you can see all info about weather in your place</h2>
-<div *ngIf="showResults === true">
-    <div>
-        <h3>Your city is: <span>{{_listItems?.name}}</span></h3>
-        <h3>Your country is <span>{{_listItems?.sys?.country | json}}</span></h3>
-        <p>Current temperature is : {{_listItems?.main | json}} C </p>
+<div class="message is-info" *ngIf="showResults === true">
+    <h2 class="message-header">Here you can see all info about weather in your place</h2>
+    <div class="message-body">
+        <h3>Your city is: <span>{{result?.name}}</span></h3>
+        <h3>Your country is <span>{{result?.sys?.country | json}}</span></h3>
+        <ul>
+            <li>Temperature: {{result?.main?.temp}}</li>
+            <li>Pressure: {{result?.main?.pressure}}</li>
+            <li>Humidity: {{result?.main?.humidity}}</li>
+            <li>Temp min: {{result?.main?.temp_min}}</li>
+        </ul>
     </div>
 </div>
