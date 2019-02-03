@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { environmentProd as envProd } from '../Utils/Environment.prod';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { UserSettings } from '../models/UserSettings';
 import { SearchesService } from '../searches/searches.service';
+import { environmentProd as envProd } from '../Utils/Environment.prod';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -27,12 +28,34 @@ export class WeatherService {
         const url = `${envProd.baseUrl}?q=${settings.city},${settings.country}&APPID=${envProd.apiKey}&units=${settings.unitSystem}`;
         this.http
             .get(url)
-            .subscribe(items => {
-                this.dataStore.listItems = items;
-                this._listItems.next(items);
-            });
+            .subscribe(
+                result => {
+                    this.dataStore.listItems = result;
+                    this._listItems.next(result);
+                },
+                error => {
+                    console.log('error');
+                    this.dataStore.listItems = error;
+                    this._listItems.next(error);
+                },
+                () => {
+                    console.log('all done');
+                }
+            );
         setTimeout(() => {
             this.searchesService.saveToLocalStorage(settings);
         });
+    }
+
+    private _handleError<T>(operation = 'operation', result?: T) {
+        return (error: any): Observable<T> => {
+            console.error(error);
+            this.log(`${operation} failed: ${error.message}`);
+            return of(result as T);
+        }
+    }
+
+    private log(message: string) {
+        console.log('message');
     }
 }

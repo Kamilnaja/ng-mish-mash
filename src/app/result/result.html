@@ -1,0 +1,26 @@
+<div *ngIf="showResults === true">
+    <div class="message is-danger" *ngIf="result.ok === false; else weatherResult">
+        <div class="message-body">
+            <h2><b>BIG UGLY ERROR!!!! Place not found or connection Error!!!</b></h2>
+            <p>Please check your internet connection!</p>
+        </div>
+    </div>
+
+    <ng-template #weatherResult>
+        <div class="message is-info">
+            <div class="message-body">
+                <h2><b>Here you can see all info about weather in your place</b></h2>
+                <h3>Your city is: <span>{{result?.name}}</span></h3>
+                <h3>Your country is <span>{{result?.sys?.country | json}}</span></h3>
+                <ul>
+                    <li>Temperature: {{result?.main?.temp}}</li>
+                    <li>Pressure: {{result?.main?.pressure}}</li>
+                    <li>Humidity: {{result?.main?.humidity}}</li>
+                    <li>Temp min: {{result?.main?.temp_min}}</li>
+                    <li>Temp max: {{result?.main?.temp_max}}</li>
+                    <li>Temp average: {{(result?.main?.temp_max + result?.main?.temp_min) / 2}}</li>
+                </ul>
+            </div>
+        </div>
+    </ng-template>
+</div>
