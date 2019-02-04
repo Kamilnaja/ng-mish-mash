@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { UserSettings } from '../../models/UserSettings';
 import { UserSettingsService } from '../../services/UserSettings.service';
-import { UnitSystem } from '../../unit-system.enum';
+import { UnitSystem } from '../../models/unit-system.enum';
 import { SearchesService } from '../searches.service';
 
 @Component({

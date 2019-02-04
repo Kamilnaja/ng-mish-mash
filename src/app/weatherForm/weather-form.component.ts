@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { UserSettings } from '../models/UserSettings';
 import { UserSettingsService } from '../services/UserSettings.service';
-import { UnitSystem } from '../unit-system.enum';
+import { UnitSystem } from '../models/unit-system.enum';
 
 @Component({
   selector: 'app-weather-form',

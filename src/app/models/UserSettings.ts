@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UnitSystem } from '../unit-system.enum';
+import { UnitSystem } from './unit-system.enum';
 
 @Injectable({
     providedIn: 'root'

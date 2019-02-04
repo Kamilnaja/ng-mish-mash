@@ -1,27 +1,28 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
-import { ResultComponent } from './result/Result.component';
-import { WeatherService } from './result/WeatherService';
-import { WeatherFormComponent } from './weatherForm/weather-form.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { UserSettingsService } from './services/UserSettings.service';
-import { UserSettings } from './models/UserSettings';
+import { appRoutes } from './appRoutes';
+import { ContactComponent } from './contact/contact.component';
 import { StoredUserSettings } from './models/StoredUserSettings';
-import { SearchesComponent } from './searches/searches.component';
-import { SearchesService } from './searches/searches.service';
-import { LocalStorageService } from './services/LocalStorageService';
+import { UserSettings } from './models/UserSettings';
+import { NavbarComponent } from './navbar/navbar.component';
 import { CityNotFoundComponent } from './result/partials/cityNotFound/CityNotFound.component';
 import { ConnectionErrorComponent } from './result/partials/connectionError/ConnectionError.component';
 import { ResultOkComponent } from './result/partials/resultok/ResultOk.component';
+import { ResultComponent } from './result/Result.component';
+import { WeatherService } from './result/WeatherService';
+import { SearchesComponent } from './searches/searches.component';
+import { SearchesService } from './searches/searches.service';
 import { SingleSearchComponent } from './searches/single-search/single-search.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './navbar/navbar.component';
-import { RouterModule } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
-import { appRoutes } from './appRoutes';
+import { LocalStorageService } from './services/LocalStorageService';
+import { UserSettingsService } from './services/UserSettings.service';
+import { WeatherFormComponent } from './weatherForm/weather-form.component';
+import { WeatherComponent } from './app.weather.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { appRoutes } from './appRoutes';
     ResultOkComponent,
     NavbarComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
