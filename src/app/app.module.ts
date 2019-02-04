@@ -18,6 +18,10 @@ import { ResultOkComponent } from './result/partials/resultok/ResultOk.component
 import { SingleSearchComponent } from './searches/single-search/single-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule } from '@angular/router';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { appRoutes } from './appRoutes';
 
 @NgModule({
   declarations: [
@@ -29,14 +33,20 @@ import { NavbarComponent } from './navbar/navbar.component';
     CityNotFoundComponent,
     ConnectionErrorComponent,
     ResultOkComponent,
-    NavbarComponent
+    NavbarComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true }
+    )
   ],
   providers: [
     WeatherService,
@@ -49,4 +59,5 @@ import { NavbarComponent } from './navbar/navbar.component';
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+}
