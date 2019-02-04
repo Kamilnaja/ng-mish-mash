@@ -16,7 +16,8 @@ import { CityNotFoundComponent } from './result/partials/cityNotFound/CityNotFou
 import { ConnectionErrorComponent } from './result/partials/connectionError/ConnectionError.component';
 import { ResultOkComponent } from './result/partials/resultok/ResultOk.component';
 import { SingleSearchComponent } from './searches/single-search/single-search.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,15 @@ import { SingleSearchComponent } from './searches/single-search/single-search.co
     SingleSearchComponent,
     CityNotFoundComponent,
     ConnectionErrorComponent,
-    ResultOkComponent
+    ResultOkComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     WeatherService,
