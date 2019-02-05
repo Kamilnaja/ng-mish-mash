@@ -46,7 +46,7 @@ export class SearchesService {
   removeSearch(uuid: number): void {
     const itemsToSave = this.storageService.getParsedItem(environmentProd.localStorageKey);
     //  find wanted item
-    const foundIndex = itemsToSave.findIndex(item => item.uuid = uuid);
+    const foundIndex = itemsToSave.findIndex(item => item.uuid === uuid);
     itemsToSave.splice(foundIndex, 1);
 
     this._finalizeSave(itemsToSave);
