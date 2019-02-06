@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { FlagsService } from 'src/app/services/Flags.service';
 import { ResponseOk } from 'src/app/interfaces/responseOk';
 
@@ -8,15 +8,18 @@ import { ResponseOk } from 'src/app/interfaces/responseOk';
     styleUrls: ['./../../result.css']
 })
 
-export class ResultOkComponent implements OnInit {
+export class ResultOkComponent implements OnChanges {
+
     @Input() result: ResponseOk;
     flagSrc: string;
 
     constructor(private flagService: FlagsService) { }
 
-    ngOnInit() {
-        this.flagService.requestFlag('pl').subscribe(
-            res => this.flagSrc = res
-        );
+    ngOnChanges() {
+        if (typeof this.result !== 'undefined' && this.result.length !== 0) {
+            this.flagService.requestFlag(this.result.sys.country.toLocaleLowerCase()).subscribe(
+                res => this.flagSrc = res
+            );
+        }
     }
 }
