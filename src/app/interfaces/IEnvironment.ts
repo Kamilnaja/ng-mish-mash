@@ -3,4 +3,5 @@ export interface IEnvironment {
     baseUrl: string;
     apiKey: string;
     localStorageKey: string;
+    flagAddress: string;
 }

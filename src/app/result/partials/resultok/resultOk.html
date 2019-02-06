@@ -3,6 +3,8 @@
         <h2><b>Here you can see all info about weather in your place</b></h2>
         <h3>Your city is: <span>{{result?.name}}</span></h3>
         <h3>Your country is <span>{{result?.sys?.country | json}}</span></h3>
+        <h2>Flag of your country!</h2>
+        <img [src]="flagSrc" alt=" country flag">
         <ul>
             <li>Temperature: {{result?.main?.temp}}</li>
             <li>Pressure: {{result?.main?.pressure}}</li>
