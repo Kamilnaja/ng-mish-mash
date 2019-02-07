@@ -10,6 +10,6 @@ export class FlagsService {
     constructor(private http: HttpClient) { }
 
     requestFlag(countryName: string): Observable<string> {
-        return of(`assets/svg-country-flags/png100px/${countryName}.png`);
+        return of(`./assets/svg-country-flags/png100px/${countryName}.png`);
     }
 }

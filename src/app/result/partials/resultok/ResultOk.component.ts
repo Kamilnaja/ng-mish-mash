@@ -17,9 +17,12 @@ export class ResultOkComponent implements OnChanges {
 
     ngOnChanges() {
         if (typeof this.result !== 'undefined' && this.result.length !== 0) {
-            this.flagService.requestFlag(this.result.sys.country.toLocaleLowerCase()).subscribe(
-                res => this.flagSrc = res
-            );
+            this.getFlag();
         }
+    }
+
+    private getFlag() {
+        this.flagService.requestFlag(
+            this.result.sys.country.toLocaleLowerCase()).subscribe(res => this.flagSrc = res);
     }
 }
