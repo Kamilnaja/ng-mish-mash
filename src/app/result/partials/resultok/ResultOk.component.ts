@@ -16,7 +16,9 @@ export class ResultOkComponent implements OnChanges {
     constructor(private flagService: FlagsService) { }
 
     ngOnChanges() {
-        if (typeof this.result !== 'undefined' && this.result.length !== 0) {
+        if (typeof this.result !== 'undefined'
+            && this.result.length !== 0
+            && this.result.ok !== false) {
             this.getFlag();
         }
     }

@@ -21,4 +21,5 @@ export interface ResponseOk {
     name: string;
     cod: number;
     length?: number;
+    ok?: boolean;
 }
