@@ -1,0 +1,16 @@
+::ng-deep .wi-icon {
+    font-size: 70px;
+    padding: 15px;
+}
+
+.resultOk__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 550px;
+}
+
+.resultOk__wrapper--images img {
+    display: block;
+}

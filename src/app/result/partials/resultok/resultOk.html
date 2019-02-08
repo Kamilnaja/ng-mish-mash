@@ -1,16 +1,22 @@
-<ng2-wi [name]="'windy'"></ng2-wi>
 <div class="message is-info" *ngIf="result.main">
     <div class="message-body">
         <h2><b>Here you can see all info about weather in your place</b></h2>
-        <img [src]="flagSrc" alt=" country flag">
-        <h3>Your city is: <span>{{result?.name}}</span></h3>
-        <h3>Your country is <span>{{result?.sys?.country | json}}</span></h3>
-        <ul>
-            <li>Temperature: {{result?.main?.temp}}</li>
-            <li>Pressure: {{result?.main?.pressure}}</li>
-            <li>Humidity: {{result?.main?.humidity}}</li>
-            <li>Temp min: {{result?.main?.temp_min}}</li>
-            <li>Temp max: {{result?.main?.temp_max}}</li>
-        </ul>
+        <div class="resultOk__wrapper">
+            <div>
+                <h3>Your city is: <span>{{result?.name}}</span></h3>
+                <h3>Your country is <span>{{result?.sys?.country | json}}</span></h3>
+                <ul>
+                    <li>Temperature: {{result?.main?.temp}}</li>
+                    <li>Pressure: {{result?.main?.pressure}}</li>
+                    <li>Humidity: {{result?.main?.humidity}}</li>
+                    <li>Temp min: {{result?.main?.temp_min}}</li>
+                    <li>Temp max: {{result?.main?.temp_max}}</li>
+                </ul>
+            </div>
+            <div class="resultOk__wrapper--images">
+                <img [src]="flagSrc" alt=" country flag">
+                <app-weather-icon [weatherId]="result.weather[0].id"></app-weather-icon>
+            </div>
+        </div>
     </div>
 </div>

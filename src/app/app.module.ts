@@ -24,6 +24,7 @@ import { SingleSearchComponent } from './searches/single-search/single-search.co
 import { LocalStorageService } from './services/LocalStorageService';
 import { UserSettingsService } from './services/UserSettings.service';
 import { WeatherFormComponent } from './weatherForm/weather-form.component';
+import { WeatherIconComponent } from './result/partials/resultok/icon/WeatherIcon.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { WeatherFormComponent } from './weatherForm/weather-form.component';
     AboutComponent,
     ContactComponent,
     WeatherComponent,
+    WeatherIconComponent
   ],
   imports: [
     BrowserModule,
