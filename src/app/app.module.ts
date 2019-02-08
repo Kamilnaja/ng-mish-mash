@@ -4,8 +4,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { Ng2WeatherIconsModule } from 'ng2-weather-icons';
 import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
+import { WeatherComponent } from './app.weather.component';
 import { appRoutes } from './appRoutes';
 import { ContactComponent } from './contact/contact.component';
 import { StoredUserSettings } from './models/StoredUserSettings';
@@ -22,7 +24,6 @@ import { SingleSearchComponent } from './searches/single-search/single-search.co
 import { LocalStorageService } from './services/LocalStorageService';
 import { UserSettingsService } from './services/UserSettings.service';
 import { WeatherFormComponent } from './weatherForm/weather-form.component';
-import { WeatherComponent } from './app.weather.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { WeatherComponent } from './app.weather.component';
     NavbarComponent,
     AboutComponent,
     ContactComponent,
-    WeatherComponent
+    WeatherComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +46,7 @@ import { WeatherComponent } from './app.weather.component';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
+    Ng2WeatherIconsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
@@ -56,7 +58,7 @@ import { WeatherComponent } from './app.weather.component';
     UserSettings,
     StoredUserSettings,
     SearchesService,
-    LocalStorageService
+    LocalStorageService,
   ],
   bootstrap: [AppComponent]
 })
