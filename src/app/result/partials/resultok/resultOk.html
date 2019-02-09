@@ -1,4 +1,4 @@
-<div class="message is-info" *ngIf="result.main">
+<div class="message is-info" *ngIf="result.main" [@openClose]="isOpen ? 'open': 'closed'">
     <div class="message-body">
         <h2><b>Here you can see all info about weather in your place</b></h2>
         <div class="resultOk__wrapper">

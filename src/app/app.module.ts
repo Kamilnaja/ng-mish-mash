@@ -15,6 +15,7 @@ import { UserSettings } from './models/UserSettings';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CityNotFoundComponent } from './result/partials/cityNotFound/CityNotFound.component';
 import { ConnectionErrorComponent } from './result/partials/connectionError/ConnectionError.component';
+import { WeatherIconComponent } from './result/partials/resultok/icon/WeatherIcon.component';
 import { ResultOkComponent } from './result/partials/resultok/ResultOk.component';
 import { ResultComponent } from './result/Result.component';
 import { WeatherService } from './result/WeatherService';
@@ -24,7 +25,6 @@ import { SingleSearchComponent } from './searches/single-search/single-search.co
 import { LocalStorageService } from './services/LocalStorageService';
 import { UserSettingsService } from './services/UserSettings.service';
 import { WeatherFormComponent } from './weatherForm/weather-form.component';
-import { WeatherIconComponent } from './result/partials/resultok/icon/WeatherIcon.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,7 @@ import { WeatherIconComponent } from './result/partials/resultok/icon/WeatherIco
     Ng2WeatherIconsModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true }
+      { enableTracing: false }
     )
   ],
   providers: [
