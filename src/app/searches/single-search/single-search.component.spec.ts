@@ -8,9 +8,9 @@ describe('SingleSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SingleSearchComponent ]
+      declarations: [SingleSearchComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('SingleSearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create single search component', () => {
     expect(component).toBeTruthy();
   });
 });

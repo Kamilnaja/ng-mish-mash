@@ -8,7 +8,6 @@ import { Ng2WeatherIconsModule } from 'ng2-weather-icons';
 import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './app.weather.component';
-import { appRoutes } from './appRoutes';
 import { ContactComponent } from './contact/contact.component';
 import { StoredUserSettings } from './models/StoredUserSettings';
 import { UserSettings } from './models/UserSettings';
@@ -50,10 +49,7 @@ import { WeatherFormComponent } from './weatherForm/weather-form.component';
     FormsModule,
     BrowserAnimationsModule,
     Ng2WeatherIconsModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: false }
-    )
+    RouterModule
   ],
   providers: [
     WeatherService,

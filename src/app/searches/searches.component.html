@@ -1,4 +1,5 @@
-<button class="button is-fullwidth" (click)="handleClear()" [attr.disabled]="lastSearches.length > 0 ? null : 'disabled'">
+<button class="button is-fullwidth" (click)="handleClear()"
+  [attr.disabled]="lastSearches.length > 0 ? null : 'disabled'">
   clear
 </button>
 <ul *ngFor="let item of lastSearches">

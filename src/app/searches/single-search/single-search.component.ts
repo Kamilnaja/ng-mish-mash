@@ -11,10 +11,10 @@ import { SearchesService } from '../searches.service';
 
 export class SingleSearchComponent {
 
-  @Input() city: string;
-  @Input() country: string;
-  @Input() unitSystem: UnitSystem;
-  @Input() uuid: any;
+  @Input() public city: string;
+  @Input() public country: string;
+  @Input() public unitSystem: UnitSystem;
+  @Input() public uuid: any;
 
   constructor(private userSettingsService: UserSettingsService, private searchesService: SearchesService) { }
 

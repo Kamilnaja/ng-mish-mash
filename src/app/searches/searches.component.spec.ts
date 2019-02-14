@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchesComponent } from './searches.component';
+import { SingleSearchComponent } from './single-search/single-search.component';
 
 describe('SearchesComponent', () => {
   let component: SearchesComponent;
@@ -8,9 +9,9 @@ describe('SearchesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchesComponent ]
+      declarations: [SearchesComponent, SingleSearchComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe('SearchesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create single search', () => {
     expect(component).toBeTruthy();
   });
 });
