@@ -14,17 +14,14 @@ import { IconService } from 'src/app/services/Icons.service';
     providers: [FlagsService, IconService],
     animations: [
         trigger('openClose', [
-
             state('open', style({
-                height: '200px',
-                backgroundColor: 'yellow'
+                opacity: 1
             })),
-            state('close', style({
-                height: '100px',
-                backgroundColor: 'green'
+            state('closed', style({
+                opacity: 0
             })),
             transition('closed => open', [
-                animate('0.5s')
+                animate('0.8s')
             ])
         ])
     ]
@@ -44,10 +41,10 @@ export class ResultOkComponent implements OnChanges, OnDestroy {
 
         if (validateResult) {
             this.getFlag();
-            this.isOpen = true;
+            this.isOpen = false;
             setTimeout(() => {
-                this.isOpen = false;
-            }, 1000);
+                this.isOpen = true;
+            }, 50);
         }
     }
 
@@ -57,6 +54,7 @@ export class ResultOkComponent implements OnChanges, OnDestroy {
 
     private getFlag() {
         this.flagService.requestFlag(
-            this.result.sys.country.toLocaleLowerCase()).subscribe(res => this.flagSrc = res);
+            this.result.sys.country
+                .toLocaleLowerCase()).subscribe(res => this.flagSrc = res);
     }
 }

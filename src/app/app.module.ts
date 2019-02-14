@@ -29,6 +29,7 @@ import { WeatherFormComponent } from './weatherForm/weather-form.component';
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     ResultComponent,
     WeatherFormComponent,
     SearchesComponent,
