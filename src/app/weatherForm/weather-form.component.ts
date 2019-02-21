@@ -11,6 +11,7 @@ import { UnitSystem } from '../models/unit-system.enum';
 
 export class WeatherFormComponent {
   showResults = false;
+  // todo make form group!
   city = new FormControl('Warsaw');
   country = new FormControl('pl');
   unitSystem = UnitSystem.metric;
