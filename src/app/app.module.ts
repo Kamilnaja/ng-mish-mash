@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { Ng2WeatherIconsModule } from 'ng2-weather-icons';
 import { AboutComponent } from './about/about.component';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './app.weather.component';
 import { ContactComponent } from './contact/contact.component';
@@ -18,13 +19,10 @@ import { WeatherIconComponent } from './result/partials/resultok/icon/WeatherIco
 import { ResultOkComponent } from './result/partials/resultok/ResultOk.component';
 import { ResultComponent } from './result/Result.component';
 import { WeatherService } from './result/WeatherService';
-import { SearchesComponent } from './searches/searches.component';
-import { SearchesService } from './searches/searches.service';
-import { SingleSearchComponent } from './searches/single-search/single-search.component';
+import { SearchesModule } from './searches/searches.module';
 import { LocalStorageService } from './services/LocalStorageService';
 import { UserSettingsService } from './services/UserSettings.service';
 import { WeatherFormComponent } from './weatherForm/weather-form.component';
-import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -32,8 +30,6 @@ import { AppRoutingModule } from './app-routing.module';
     NavbarComponent,
     ResultComponent,
     WeatherFormComponent,
-    SearchesComponent,
-    SingleSearchComponent,
     CityNotFoundComponent,
     ConnectionErrorComponent,
     ResultOkComponent,
@@ -51,14 +47,14 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     Ng2WeatherIconsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SearchesModule
   ],
   providers: [
     WeatherService,
     UserSettingsService,
     UserSettings,
     StoredUserSettings,
-    SearchesService,
     LocalStorageService,
   ],
   bootstrap: [AppComponent]
