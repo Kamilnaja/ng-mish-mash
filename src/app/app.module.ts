@@ -24,6 +24,7 @@ import { SingleSearchComponent } from './searches/single-search/single-search.co
 import { LocalStorageService } from './services/LocalStorageService';
 import { UserSettingsService } from './services/UserSettings.service';
 import { WeatherFormComponent } from './weatherForm/weather-form.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { WeatherFormComponent } from './weatherForm/weather-form.component';
     FormsModule,
     BrowserAnimationsModule,
     Ng2WeatherIconsModule,
-    RouterModule
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [
     WeatherService,
