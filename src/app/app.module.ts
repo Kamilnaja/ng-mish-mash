@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
 import { Ng2WeatherIconsModule } from 'ng2-weather-icons';
 import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,7 +11,7 @@ import { WeatherComponent } from './app.weather.component';
 import { ContactComponent } from './contact/contact.component';
 import { StoredUserSettings } from './models/StoredUserSettings';
 import { UserSettings } from './models/UserSettings';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarModule } from './navbar/navbar.module';
 import { CityNotFoundComponent } from './result/partials/cityNotFound/CityNotFound.component';
 import { ConnectionErrorComponent } from './result/partials/connectionError/ConnectionError.component';
 import { WeatherIconComponent } from './result/partials/resultok/icon/WeatherIcon.component';
@@ -27,13 +26,11 @@ import { WeatherFormComponent } from './weatherForm/weather-form.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     ResultComponent,
     WeatherFormComponent,
     CityNotFoundComponent,
     ConnectionErrorComponent,
     ResultOkComponent,
-    NavbarComponent,
     AboutComponent,
     ContactComponent,
     WeatherComponent,
@@ -46,9 +43,9 @@ import { WeatherFormComponent } from './weatherForm/weather-form.component';
     FormsModule,
     BrowserAnimationsModule,
     Ng2WeatherIconsModule,
-    RouterModule,
     AppRoutingModule,
-    SearchesModule
+    SearchesModule,
+    NavbarModule
   ],
   providers: [
     WeatherService,
