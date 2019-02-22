@@ -1,3 +1,37 @@
-<p>
-  report works!
-</p>
+<form [formGroup]="reportForm" (ngSubmit)="handleSubmit()" *ngIf="isSubmitted === false">
+  <div class="field">
+    <label class="label" for="reportedBy">
+      Reported by *
+    </label>
+    <input id="reportedBy" class="input" formControlName="reportedBy" required>
+    <div *ngIf="reportedByCtrl.invalid && (reportedByCtrl.touched || reportedByCtrl.dirty)">
+      <p>
+        ERROR
+      </p>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Summary</label>
+    <input type="text" class="input" formControlName="summary" required>
+    <div *ngIf="summaryCtrl.invalid && (summaryCtrl.touched || summaryCtrl.dirty)">
+      <p>
+        Summary is neccessary!
+      </p>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Description</label>
+    <textarea type="text" class="input" formControlName="description" required></textarea>
+  </div>
+  <div *ngIf="descriptionCtrl.invalid && descriptionCtrl.touched">
+    <p>
+      Description is neccessary
+    </p>
+  </div>
+  <button class="button" [disabled]="reportForm.status == 'INVALID'" (click)="setSubmitted()">
+    Submit
+  </button>
+</form>
+<div *ngIf="isSubmitted === true">
+  <p>Thanks for your report!</p>
+</div>
