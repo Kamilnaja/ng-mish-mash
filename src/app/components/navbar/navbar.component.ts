@@ -6,4 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  title = 'Weather app';
+  menuItems = [
+    { name: 'About' },
+    { name: 'Contact' },
+    {
+      name: 'Report an Issue',
+      link: 'report'
+    }
+  ];
 }

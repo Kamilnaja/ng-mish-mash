@@ -2,7 +2,7 @@
   <div class="navbar-brand">
     <a class="navbar-item" routerLink="/">
       <strong>
-        Weather app
+        {{title}}
       </strong>
     </a>
 
@@ -15,18 +15,11 @@
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" routerLink="/about">
-        About
-      </a>
-      <a class="navbar-item" routerLink="/contact">
-        Contact
-      </a>
-      <hr class="navbar-divider">
-      <a class="navbar-item" routerLink="/report">
-        Report an issue
+      <a *ngFor="let item of menuItems" class="navbar-item" [routerLink]="item.link ? item.link: item.name | lowercase">
+        {{item.name}}
       </a>
     </div>
-    <div class="navbar-end">
+    <div class=" navbar-end">
       <div class="navbar-item">
         <div class="buttons">
           <a class="button is-primary">

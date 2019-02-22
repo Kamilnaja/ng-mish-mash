@@ -24,4 +24,24 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have title weather app', () => {
+    expect(component.title).toEqual('Weather app');
+  });
+
+  it('should have a report an issue element', () => {
+    const navbarElement: HTMLElement = fixture.nativeElement;
+    expect(navbarElement.textContent).toContain('Report an issue');
+  });
+
+  it('should have a report an about element', () => {
+    const navbarElement: HTMLElement = fixture.nativeElement;
+    expect(navbarElement.textContent).toContain('About');
+  });
+
+  it('should have a report an contact element', () => {
+    const navbarElement: HTMLElement = fixture.nativeElement;
+    expect(navbarElement.textContent).toContain('Contact');
+  });
+
 });

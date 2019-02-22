@@ -30,16 +30,4 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('app-navbar')).not.toBe(null);
   }));
 
-  // it(`should have as title 'multiform'`, () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   const app = fixture.debugElement.componentInstance;
-  //   expect(app.title).toEqual('multiform');
-  // });
-
-  // it('should render title in a h1 tag', () => {
-  // const fixture = TestBed.createComponent(AppComponent);
-  // fixture.detectChanges();
-  // const compiled = fixture.debugElement.nativeElement;
-  // expect(compiled.querySelector('h1').textContent).toContain('Welcome to multiform!');
-  // });
 });
