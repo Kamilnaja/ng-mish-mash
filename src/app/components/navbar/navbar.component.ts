@@ -15,4 +15,10 @@ export class NavbarComponent {
       link: 'report'
     }
   ];
+
+  isActive = false;
+
+  toggleMenu() {
+    this.isActive = !this.isActive;
+  }
 }
