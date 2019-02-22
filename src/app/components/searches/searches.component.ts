@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserSettingsService } from '../services/UserSettings.service';
 import { SearchesService } from './searches.service';
+import { UserSettingsService } from 'src/app/services/UserSettings.service';
 
 @Component({
   selector: 'app-searches',

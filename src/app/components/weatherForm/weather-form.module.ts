@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WeatherFormComponent } from './weather-form.component';
-import { UserSettingsService } from '../services/UserSettings.service';
+import { UserSettingsService } from '../../services/UserSettings.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResultComponent } from '../result/Result.component';
 import { ResultOkComponent } from '../result/partials/resultok/ResultOk.component';

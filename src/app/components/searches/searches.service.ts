@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { StoredUserSettings } from '../models/StoredUserSettings';
-import { UserSettings } from '../models/UserSettings';
-import { LocalStorageService } from '../services/LocalStorageService';
-import { environmentProd } from '../Utils/Environment.prod';
+import { StoredUserSettings } from '../../models/StoredUserSettings';
+import { UserSettings } from '../../models/UserSettings';
+import { LocalStorageService } from '../../services/LocalStorageService';
+import { environmentProd } from '../../Utils/Environment.prod';
 
 @Injectable({
   providedIn: 'root'

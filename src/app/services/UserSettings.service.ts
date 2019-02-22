@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserSettings } from '../models/UserSettings';
-import { WeatherService } from '../result/WeatherService';
 import { UnitSystem } from '../models/unit-system.enum';
+import { WeatherService } from '../components/result/WeatherService';
 
 @Injectable()
 export class UserSettingsService {

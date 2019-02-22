@@ -16,9 +16,10 @@ export class ResultComponent implements OnInit {
     constructor(private _weatherService: WeatherService) { }
 
     ngOnInit(): void {
-        this._weatherService.listItems$.subscribe(t => {
-            this.result = t;
-        });
+        this._weatherService.listItems$
+            .subscribe(t => {
+                this.result = t;
+            });
     }
 
     get weatherResponse() {

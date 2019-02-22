@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { StoredUserSettings } from '../models/StoredUserSettings';
+import { StoredUserSettings } from '../../models/StoredUserSettings';
+import { environmentProd as envProd } from '../../Utils/Environment.prod';
 import { SearchesService } from '../searches/searches.service';
-import { environmentProd as envProd } from '../Utils/Environment.prod';
 
 @Injectable({
     providedIn: 'root'

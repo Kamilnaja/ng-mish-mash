@@ -11,6 +11,4 @@ import { Component } from '@angular/core';
     </div>`
 })
 
-export class WeatherComponent {
-
-}
+export class WeatherComponent { }
