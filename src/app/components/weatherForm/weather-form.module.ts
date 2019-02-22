@@ -23,7 +23,11 @@ import { WeatherIconComponent } from '../result/partials/resultok/icon/WeatherIc
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [UserSettingsService],
-  exports: [WeatherFormComponent]
+  providers: [
+    UserSettingsService
+  ],
+  exports: [
+    WeatherFormComponent
+  ]
 })
 export class WeatherFormModule { }
