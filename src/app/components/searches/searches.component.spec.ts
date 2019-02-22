@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchesComponent } from './searches.component';
 import { SingleSearchComponent } from './single-search/single-search.component';
-import { UserSettingsService } from '../services/UserSettings.service';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { UserSettingsService } from 'src/app/services/UserSettings.service';
 
 describe('SearchesComponent', () => {
   let component: SearchesComponent;

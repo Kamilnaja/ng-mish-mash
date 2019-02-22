@@ -4,7 +4,7 @@
       Reported by *
     </label>
     <input id="reportedBy" class="input" formControlName="reportedBy" required>
-    <div *ngIf="reportedByCtrl.invalid && (reportedByCtrl.touched || reportedByCtrl.dirty)">
+    <div *ngIf="reportedBy.invalid && (reportedBy.touched || reportedBy.dirty)">
       <p>
         ERROR
       </p>
@@ -13,7 +13,7 @@
   <div class="field">
     <label class="label">Summary</label>
     <input type="text" class="input" formControlName="summary" required>
-    <div *ngIf="summaryCtrl.invalid && (summaryCtrl.touched || summaryCtrl.dirty)">
+    <div *ngIf="summary.invalid && (summary.touched || summary.dirty)">
       <p>
         Summary is neccessary!
       </p>
@@ -23,7 +23,7 @@
     <label class="label">Description</label>
     <textarea type="text" class="input" formControlName="description" required></textarea>
   </div>
-  <div *ngIf="descriptionCtrl.invalid && descriptionCtrl.touched">
+  <div *ngIf="description.invalid && (description.touched || description.dirty)">
     <p>
       Description is neccessary
     </p>
