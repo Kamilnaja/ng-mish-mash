@@ -14,7 +14,7 @@
   </div>
   <div id="navbarBasicExample" [ngClass]="['navbar-menu', isActive === true ? 'is-active': '']">
     <div class="navbar-start">
-      <a *ngFor="let item of menuItems" class="navbar-item" [routerLink]="item.link ? item.link: item.name | lowercase">
+      <a *ngFor="let item of menuItems" class="navbar-item" [routerLink]="item.link ? item.link: item.name | lowercase" (click)="hideMenu()">
         {{item.name}}
       </a>
     </div>

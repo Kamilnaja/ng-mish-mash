@@ -21,4 +21,8 @@ export class NavbarComponent {
   toggleMenu() {
     this.isActive = !this.isActive;
   }
+
+  hideMenu() {
+    this.isActive = false;
+  }
 }
