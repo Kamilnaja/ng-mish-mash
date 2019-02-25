@@ -9,12 +9,14 @@ import { AppComponent } from './components/app.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NavbarModule } from './components/navbar/navbar.module';
 import { ReportModule } from './components/report/report.module';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     ContactComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
