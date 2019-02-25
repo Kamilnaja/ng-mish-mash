@@ -10,6 +10,6 @@ export const appRoutes: Routes = [
     { path: 'report', component: ReportComponent },
     { path: 'contact', component: ContactComponent },
     { path: '', component: WeatherComponent },
-    { path: 'weather-app', redirectTo: '/' },
-    { path: '**', component: PageNotFoundComponent }
+    // { path: 'weather-app', redirectTo: '/' },
+    // { path: '**', component: PageNotFoundComponent }
 ];
