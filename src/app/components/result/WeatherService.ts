@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { StoredUserSettings } from '../../models/StoredUserSettings';
 import { environmentProd as envProd } from '../../Utils/Environment.prod';
 import { SearchesService } from '../searches/searches.service';
+import { Result } from 'src/app/interfaces/Result';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,7 @@ import { SearchesService } from '../searches/searches.service';
 
 export class WeatherService {
 
-    public listItems$: Observable<[]>;
+    public listItems$: Observable<Result>;
     private _listItems: BehaviorSubject<any>;
     private dataStore: {
         listItems: any;

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Result } from 'src/app/interfaces/Result';
 
 @Component({
     selector: 'app-city-not-found',
@@ -7,5 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 
 export class CityNotFoundComponent {
-    @Input() result: object;
+    @Input() result: Result;
 }

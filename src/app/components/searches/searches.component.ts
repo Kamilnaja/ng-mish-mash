@@ -10,17 +10,21 @@ import { UserSettingsService } from 'src/app/services/UserSettings.service';
 
 export class SearchesComponent implements OnInit {
 
-  private lastSearches = Array<Object>();
+  private _lastSearches = Array<Object>();
 
   constructor(
     private searchesService: SearchesService,
     public _userDataService: UserSettingsService) { }
 
   ngOnInit(): void {
-    this.searchesService.result.subscribe(t => this.lastSearches = t);
+    this.searchesService.result.subscribe(t => this._lastSearches = t);
   }
 
   handleClear() {
     this.searchesService.clearSearches();
+  }
+
+  get lastSearches() {
+    return this._lastSearches;
   }
 }
