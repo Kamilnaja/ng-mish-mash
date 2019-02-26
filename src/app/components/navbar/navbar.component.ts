@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Language } from './../../enums/Language';
 
 @Component({
   selector: 'app-navbar',
@@ -11,10 +12,11 @@ export class NavbarComponent {
     { name: 'About' },
     { name: 'Contact' },
     {
-      name: 'Report an Issue',
+      name: 'Report an issue',
       link: 'report'
     }
   ];
+  chosenLanguage: Language = Language.en;
 
   isActive = false;
 
