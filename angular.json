@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "multiform": {
+    "weather-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/multiform",
+            "outputPath": "dist/weather-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -21,7 +21,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/404.html",
               {
                 "glob": "**/*",
                 "input": "./node_modules/svg-country-flags/",
@@ -69,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "multiform:build"
+            "browserTarget": "weather-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "multiform:build:production"
+              "browserTarget": "weather-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "multiform:build"
+            "browserTarget": "weather-app:build"
           }
         },
         "test": {
@@ -114,7 +113,7 @@
         }
       }
     },
-    "multiform-e2e": {
+    "weather-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -123,11 +122,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "multiform:serve"
+            "devServerTarget": "weather-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "multiform:serve:production"
+              "devServerTarget": "weather-app:serve:production"
             }
           }
         },
@@ -143,5 +142,5 @@
       }
     }
   },
-  "defaultProject": "multiform"
+  "defaultProject": "weather-app"
 }

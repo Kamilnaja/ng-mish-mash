@@ -1,0 +1,8 @@
+{
+  "hosting": {
+    "public": "dist"
+  },
+  "projects": {
+    "alias": "weather-app-b2961"
+  }
+}
