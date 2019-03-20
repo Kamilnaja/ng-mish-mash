@@ -10,6 +10,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { NavbarModule } from './components/navbar/navbar.module';
 import { ReportModule } from './components/report/report.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { NiewazneComponent } from './niewazne/niewazne.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     AboutComponent,
     ContactComponent,
     PageNotFoundComponent,
+    NiewazneComponent,
   ],
   imports: [
     BrowserModule,
