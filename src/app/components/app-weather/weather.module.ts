@@ -11,8 +11,9 @@ import { WeatherFormModule } from '../weatherForm/weather-form.module';
     imports: [
         CommonModule,
         WeatherFormModule,
-        SearchesModule
+        SearchesModule,
     ],
+
     exports: [WeatherComponent]
 })
 export class WeatherModule { }

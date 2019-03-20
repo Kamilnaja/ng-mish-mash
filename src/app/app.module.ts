@@ -11,6 +11,7 @@ import { NavbarModule } from './components/navbar/navbar.module';
 import { ReportModule } from './components/report/report.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { UserComponent } from './components/user/user.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { UserComponent } from './components/user/user.component';
     ContactComponent,
     PageNotFoundComponent,
     UserComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,9 @@ import { UserComponent } from './components/user/user.component';
     NavbarModule,
     ReportModule,
     WeatherModule
+  ],
+  exports: [
+    BannerComponent
   ],
   bootstrap: [AppComponent]
 })

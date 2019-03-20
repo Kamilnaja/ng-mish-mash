@@ -8,9 +8,9 @@ describe('UserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserComponent ]
+      declarations: [UserComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -30,6 +30,15 @@ describe('UserComponent', () => {
 
     expect(fixture.nativeElement.innerHTML).toContain('Your name is selected.');
     expect(fixture.nativeElement.textContent).toContain('Your name is selected.');
+
+    const elemDe = fixture.debugElement;
+    const elemHTML = elemDe.nativeElement;
+    const span = elemHTML.querySelector('span');
+    expect(span.textContent).toEqual('Your name is selected.');
+
+    component.name = '';
+    fixture.detectChanges();
+    expect(fixture.nativeElement.textContent).toContain('Please set your name');
 
   });
 
