@@ -85,5 +85,4 @@ export class SearchesService {
   private checkIfItemExists(item: UserSettings) {
     return (x: { city: string; country: string; }) => x.city === item.city && x.country === item.country;
   }
-
 }

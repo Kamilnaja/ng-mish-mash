@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AboutComponent } from './about.component';
+import { UserComponent } from '../user/user.component';
 
 describe('AboutComponent', () => {
   let component: AboutComponent;
@@ -8,7 +9,7 @@ describe('AboutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AboutComponent ]
+      declarations: [ AboutComponent, UserComponent ]
     })
     .compileComponents();
   }));
@@ -22,4 +23,5 @@ describe('AboutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

@@ -1,0 +1,7 @@
+<p>User {{name}}</p>
+<div *ngIf='name && name.length'>
+  <span>Your name is selected.</span>
+</div>
+<div *ngIf='!name'>
+  <span>Please set your name</span>
+</div>
